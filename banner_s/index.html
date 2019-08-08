@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<script src="iscroll.Veb.js"></script>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		html{
+			font-size: 13.3333vw
+		}
+		#box{
+			width: 7.50rem;
+			position: relative;
+		}
+		#box1{
+			font-size: 0;
+			width:67.5rem;
+		}
+		#box1 img{
+			width: 7.50rem;
+			height: auto;
+			float: left;
+		}
+		#box2{
+			position: absolute;
+			bottom: 0.2rem;
+			left: 2.7rem
+		}
+		#box2 li{
+			width: 0.16rem;
+			height: 0.16rem;
+			border-radius: 0.08rem;
+			background: black;
+			float: left;
+			list-style: none;
+			margin:0 0.07rem;
+		}
+		#box .cla{
+			background: red
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="box1">
+			<img src="images/7.jpg" alt="">
+			<img src="images/1.jpg" alt="">
+			<img src="images/2.jpg" alt="">
+			<img src="images/3.jpg" alt="">
+			<img src="images/4.jpg" alt="">
+			<img src="images/5.jpg" alt="">
+			<img src="images/6.jpg" alt="">
+			<img src="images/7.jpg" alt="">
+			<img src="images/1.jpg" alt="">
+		</div>
+		<ul id="box2">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+<script>
+
+	var btns=box2.children
+
+	var p=1
+
+	btns[p-1].className="cla"
+	
+	var isc=new iScroll("box",{
+
+		hScrollbar:false,
+
+		snap:true,
+
+		momentum:false,
+
+		snapThreshold:100,
+
+		x:-375,
+
+		onScrollEnd:function(){
+
+			p=this.currPageX
+
+
+			if(p==8){
+
+				this.scrollToPage(1,0,0)
+
+			}
+
+			if(p==0){
+
+				this.scrollToPage(7,0,0)
+
+			}
+
+			for(var i=0;i<btns.length;i++){
+
+				btns[i].className=" "
+
+			}
+
+			btns[p-1].className="cla"
+
+			console.log(p)
+			
+		}
+
+	})
+
+	isc.currPageX=1
+
+</script>
+</html>
